@@ -1,0 +1,28 @@
+﻿<Window x:Class="UrduEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UrduEditor"
+        xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Urdu Editor" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBarPanel Grid.Row="0">
+            <ToolBar>
+                <ToolBar.Items>
+                    <Button Click="OnOpen">Open</Button>
+                    <Button Click="OnSave">Save</Button>
+                    <Separator/>
+                    <Button Click="OnCleanup">Clean Up</Button>
+                    <Button Click="OnSpellCheck">Spell check</Button>
+                </ToolBar.Items>
+            </ToolBar>
+        </ToolBarPanel>
+        <TextBox x:Name="rtText" Grid.Row="1" FontFamily="Jameel Noori Nastaleeq" FontSize="16" Text="{Binding Content}" AutoWordSelection="True" TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft"/>
+    </Grid>
+</Window>

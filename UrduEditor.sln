@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrduEditor", "UrduEditor\UrduEditor.csproj", "{FC5CC8AC-12A2-4CBF-AA79-EA62E4658456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inshapardaz.Language.Tools", "Inshapardaz.Language.Tools\Inshapardaz.Language.Tools.csproj", "{F089AD01-2F83-480F-BB02-0CADE7C7E48C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inshapardaz.Language.Tools.Tests", "Inshapardaz.Language.Tools.Tests\Inshapardaz.Language.Tools.Tests.csproj", "{187D804F-2C68-4663-B937-3D93DA71F397}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC5CC8AC-12A2-4CBF-AA79-EA62E4658456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5CC8AC-12A2-4CBF-AA79-EA62E4658456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5CC8AC-12A2-4CBF-AA79-EA62E4658456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5CC8AC-12A2-4CBF-AA79-EA62E4658456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F089AD01-2F83-480F-BB02-0CADE7C7E48C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F089AD01-2F83-480F-BB02-0CADE7C7E48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F089AD01-2F83-480F-BB02-0CADE7C7E48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F089AD01-2F83-480F-BB02-0CADE7C7E48C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{187D804F-2C68-4663-B937-3D93DA71F397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{187D804F-2C68-4663-B937-3D93DA71F397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{187D804F-2C68-4663-B937-3D93DA71F397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{187D804F-2C68-4663-B937-3D93DA71F397}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA633180-4E5B-45D1-81F8-518CC2E0E092}
+	EndGlobalSection
+EndGlobal
