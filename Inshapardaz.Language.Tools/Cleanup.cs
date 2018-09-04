@@ -136,6 +136,21 @@ namespace Inshapardaz.Language.Tools
 
                 #endregion Double Quotes
 
+                #region Brackets
+
+                if (c == '(' && lastChar != ' ')
+                {
+                    sb.Append(' ');
+                    suggessions.Add(new Suggesstion { Position = index, SuggesstionType = SuggesstionTypes.NoSpaceBeforeBracket });
+                }
+
+                if (c != ' ' && lastChar == ')')
+                {
+                    sb.Append(' ');
+                    suggessions.Add(new Suggesstion { Position = index, SuggesstionType = SuggesstionTypes.NoSpaceAfterBracket });
+                }
+
+                #endregion Brackets
 
                 if (c != '۔' && lastChar == '۔' && c != ' ')
                 {
@@ -212,6 +227,8 @@ namespace Inshapardaz.Language.Tools
         FullStopPreceededBySpace,
         NoSpaceAfterFullStop,
         FullStopPreceededByQuote,
-        NoSpaceBeforeQuote
+        NoSpaceBeforeQuote,
+        NoSpaceBeforeBracket,
+        NoSpaceAfterBracket
     }
 }

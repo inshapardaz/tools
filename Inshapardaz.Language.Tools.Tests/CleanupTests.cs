@@ -228,5 +228,14 @@ namespace Inshapardaz.Language.Tools.Tests
 
             Test(input, output);
         }
+
+        [Fact]
+        public void ShouldAddSpaceBeforeBrace()
+        {
+            string input = "کام(جو کہ)کرنا";
+            string output = "کام (جو کہ) کرنا";
+
+            Test(input, output);
+        }
     }
 }
