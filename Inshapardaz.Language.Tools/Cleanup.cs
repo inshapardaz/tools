@@ -7,28 +7,15 @@ namespace Inshapardaz.Language.Tools
 {
     public class Cleanup
     {
-        public string Clean(string content)
+        public CleanupResult Clean(string text)
         {
-            var result = new StringBuilder();
-            var lines = content.Split(new[] { '\r' });
-
-            foreach (var line in lines)
-            {
-                result.AppendLine(CleanLine(line).CorrectedString);
-            }
-
-            return result.ToString().Trim();
-        }
-
-        private CleanupResult CleanLine(string line)
-        {
-            StringBuilder sb = new StringBuilder(line.Length);
+            StringBuilder sb = new StringBuilder(text.Length);
             var suggessions = new List<Suggesstion>();
             char lastChar = char.MinValue;
             char secondLastChar = char.MinValue;
             bool inDoubleQuote = false;
             int index = -1;
-            foreach (var ch in line)
+            foreach (var ch in text)
             {
                 index++;
                 char c = ch;

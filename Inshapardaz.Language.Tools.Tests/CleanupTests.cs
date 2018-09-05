@@ -10,8 +10,9 @@ namespace Inshapardaz.Language.Tools.Tests
         {
             var result = new Cleanup().Clean(input);
 
-            result.ShouldBe(output);
+            result.CorrectedString.ShouldBe(output);
         }
+
 
         [Fact]
         public void ShouldRemoveSpacesFromStartOfLine()
@@ -158,6 +159,15 @@ namespace Inshapardaz.Language.Tools.Tests
         }
 
         [Fact]
+        public void ShouldNOTAddSpaceAfterLastFullStopInParagraph()
+        {
+            string input = "ایک۔دو۔\r\nتین۔";
+            string output = "ایک۔ دو۔\rnتین۔";
+
+            Test(input, output);
+        }
+
+        [Fact]
         public void ShouldNotAddSpceBetweenMultipleFullStops()
         {
             string input = "ٹھہرو ۔ ۔ ۔";
@@ -189,6 +199,15 @@ namespace Inshapardaz.Language.Tools.Tests
         {
             string input = "کہا\"کیا بات ہے\"";
             string output = "کہا \"کیا بات ہے\"";
+
+            Test(input, output);
+        }
+
+        [Fact]
+        public void ShouldNotAddSpaceOnStartOfLine()
+        {
+            string input = "کہا\n\r\"کیا بات ہے\"";
+            string output = "کہا\r\n\"کیا بات ہے\"";
 
             Test(input, output);
         }

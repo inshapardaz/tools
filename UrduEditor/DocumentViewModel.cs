@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Inshapardaz.Language.Tools;
@@ -30,12 +31,21 @@ namespace UrduEditor
         internal void SpellCheck()
         {
             var mistakes = new SpellChecker().CheckSpellings(Content);
+            SpellingMistakes.Clear();
+            foreach (var mistake in mistakes)
+            {
+                SpellingMistakes.Add(mistake);
+            }
         }
 
         internal void Cleanup()
         {
             var result = new Cleanup().Clean(Content);
-            Content = result;
+            CleanupSuggesstions.Clear();
+            foreach (var s in result.Suggesstions)
+            {
+                CleanupSuggesstions.Add(s);
+            }
         }
 
         public string Content {
@@ -47,7 +57,9 @@ namespace UrduEditor
             }
         }
 
-        public ObservableCollection<Suggesstion> CleanupSuggesstions { get; set; }
+        public ObservableCollection<Suggesstion> CleanupSuggesstions { get; set; } = new ObservableCollection<Suggesstion>();
+
+        public ObservableCollection<SpellingMistake> SpellingMistakes { get; set; } = new ObservableCollection<SpellingMistake>();
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {

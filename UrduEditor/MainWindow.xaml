@@ -12,17 +12,50 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ToolBarPanel Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="300px" />
+        </Grid.ColumnDefinitions>
+        <ToolBarPanel Grid.Row="0" Grid.ColumnSpan="2">
             <ToolBar>
                 <ToolBar.Items>
-                    <Button Click="OnOpen">Open</Button>
-                    <Button Click="OnSave">Save</Button>
+                    <Button Click="OnOpen">
+                        <StackPanel>
+                            <Image Source="images/open.png" />
+                            <TextBlock>Open</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Click="OnSave">
+                        <StackPanel>
+                            <Image Source="images/save.png" />
+                            <TextBlock>Save</TextBlock>
+                        </StackPanel>
+                    </Button>
                     <Separator/>
-                    <Button Click="OnCleanup">Clean Up</Button>
-                    <Button Click="OnSpellCheck">Spell check</Button>
+                    <Button Click="OnCleanup">
+                        <StackPanel>
+                            <Image Source="images/clean.png" />
+                            <TextBlock>Clean up</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Click="OnSpellCheck">
+                        <StackPanel>
+                            <Image Source="images/spellcheck.png" />
+                            <TextBlock>Spell check</TextBlock>
+                        </StackPanel></Button>
                 </ToolBar.Items>
             </ToolBar>
         </ToolBarPanel>
-        <TextBox x:Name="rtText" Grid.Row="1" FontFamily="Jameel Noori Nastaleeq" FontSize="16" Text="{Binding Content}" AutoWordSelection="True" TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft"/>
+        <TextBox x:Name="rtText" Grid.Row="1" FontFamily="Jameel Noori Nastaleeq" FontSize="16" Text="{Binding Content}" AutoWordSelection="True" TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding CleanupSuggesstions}" SelectionMode="Single" SelectionChanged="OnSelectedSuggession">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding SuggesstionType}"></Label>
+                        <Label Content="{Binding Position}" HorizontalAlignment="Right"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

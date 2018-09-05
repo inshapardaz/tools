@@ -121,5 +121,17 @@
       <Name>Inshapardaz.Language.Tools</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\spellcheck.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

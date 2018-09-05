@@ -41,5 +41,17 @@ namespace UrduEditor
         {
             document.SaveDocument();
         }
+
+        private void OnSelectedSuggession(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                var selectedSuggession = e.AddedItems[0] as Suggesstion;
+                rtText.Focus();
+                rtText.CaretIndex = selectedSuggession.Position;
+                rtText.ScrollToEnd();
+                rtText.Select(selectedSuggession.Position, 1);
+            }
+        }
     }
 }
