@@ -30,7 +30,7 @@ namespace UrduEditor
 
         internal void SpellCheck()
         {
-            var mistakes = new SpellChecker().CheckSpellings(Content);
+            var mistakes = new SpellChecker().CheckSpellings(Content, false);
             SpellingMistakes.Clear();
             foreach (var mistake in mistakes)
             {

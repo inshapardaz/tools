@@ -110,11 +110,13 @@ namespace Inshapardaz.Language.Tools
                     continue;
                 }
 
-                if (c == '۔' && lastChar == '\"')
-                {
-
-                }
-
+                //if (c == '\"' && secondLastChar == '؟')
+                //{
+                //    sb.ReplaceLastCharacter(c);
+                //    sb.Append(' ');
+                //    inDoubleQuote = !inDoubleQuote;
+                //    continue;
+                //}
 
                 if (c == '\"')
                 {

@@ -239,6 +239,15 @@ namespace Inshapardaz.Language.Tools.Tests
             Test(input, output);
         }
 
+        [Fact(Skip = "Not sure if needed")]
+        public void ShouldAddSpaceAfterQuestionMarkAndQuote()
+        {
+            string input = "ایک؟ \"دو؟\"تین؟";
+            string output = "ایک؟ \"دو؟\" تین؟";
+
+            Test(input, output);
+        }
+
         [Fact(Skip ="Not implemented yet")]
         public void ShouldAddSpaceBeforeStartSingleQuote()
         {

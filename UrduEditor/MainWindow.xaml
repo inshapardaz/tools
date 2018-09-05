@@ -47,15 +47,37 @@
             </ToolBar>
         </ToolBarPanel>
         <TextBox x:Name="rtText" Grid.Row="1" FontFamily="Jameel Noori Nastaleeq" FontSize="16" Text="{Binding Content}" AutoWordSelection="True" TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
-        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding CleanupSuggesstions}" SelectionMode="Single" SelectionChanged="OnSelectedSuggession">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding SuggesstionType}"></Label>
-                        <Label Content="{Binding Position}" HorizontalAlignment="Right"></Label>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0">Cleanup Issues</Label>
+            <ListBox Grid.Row="1" ItemsSource="{Binding CleanupSuggesstions}" SelectionMode="Single" SelectionChanged="OnSelectedSuggession">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding SuggesstionType}"></Label>
+                            <Label Content="{Binding Position}" HorizontalAlignment="Right"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Grid.Row="2">Spelling Issues</Label>
+            <ListBox Grid.Row="3" ItemsSource="{Binding SpellingMistakes}" SelectionMode="Single" SelectionChanged="OnSelectedSuggession">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding OriginalText}"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        
     </Grid>
 </Window>

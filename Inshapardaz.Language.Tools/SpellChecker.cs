@@ -53,7 +53,7 @@ namespace Inshapardaz.Language.Tools
 
         DictonaryProvider _dictionary = new DictonaryProvider();
 
-        public IEnumerable<SpellingMistake> CheckSpellings(string content)
+        public IEnumerable<SpellingMistake> CheckSpellings(string content, bool findCorrections = true)
         {
             var mistakes = new List<SpellingMistake>();
             var tokens = new Tokenizer().Tokenize(content);
@@ -66,9 +66,12 @@ namespace Inshapardaz.Language.Tools
                 }
             }
 
-            foreach (var mistake in mistakes)
+            if (findCorrections)
             {
-                mistake.Suggestion = FindCorrectOptions(mistake.OriginalText);
+                foreach (var mistake in mistakes)
+                {
+                    mistake.Suggestion = FindCorrectOptions(mistake.OriginalText);
+                }
             }
 
             return mistakes;
