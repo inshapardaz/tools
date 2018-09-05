@@ -94,7 +94,7 @@ namespace Inshapardaz.Language.Tools
                 #region Double Quotes
 
                 // Starting quote
-                if (!inDoubleQuote && c == '\"' && lastChar != ' ' && sb.Length > 0)
+                if (!inDoubleQuote && c == '\"' && lastChar != ' ' && lastChar != '\n' && lastChar != '\r' && sb.Length > 0)
                 {
                     sb.Append(' ');
                     suggessions.Add(new Suggesstion { Position = index, SuggesstionType = SuggesstionTypes.NoSpaceBeforeQuote });
@@ -139,14 +139,14 @@ namespace Inshapardaz.Language.Tools
 
                 #endregion Brackets
 
-                if (c != '۔' && lastChar == '۔' && c != ' ')
+                if (c != '۔' && lastChar == '۔' && c != ' ' && c != '\n' && c != '\r')
                 {
                     sb.Append(' ');
                     suggessions.Add(new Suggesstion { Position = index, SuggesstionType = SuggesstionTypes.NoSpaceAfterFullStop });
                 }
 
 
-                if (c != '؟' && lastChar == '؟' && c != ' ')
+                if (c != '؟' && lastChar == '؟' && c != ' ' && c != '\n' && c != '\r')
                 {
                     sb.Append(' ');
                     suggessions.Add(new Suggesstion { Position = index, SuggesstionType = SuggesstionTypes.NoSpaceAfterQuestion });

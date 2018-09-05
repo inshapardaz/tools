@@ -132,6 +132,15 @@ namespace Inshapardaz.Language.Tools.Tests
         }
 
         [Fact]
+        public void ShouldNotAddSpaceAfterQuestionMarkAtEndOfLine()
+        {
+            string input = "ایک؟دو؟\r\nتین؟";
+            string output = "ایک؟ دو؟\r\nتین؟";
+
+            Test(input, output);
+        }
+
+        [Fact]
         public void ShouldNotAddSpceBetweenMultipleQuestionMarks()
         {
             string input = "کیا ؟ ؟ ؟ ";
@@ -162,7 +171,7 @@ namespace Inshapardaz.Language.Tools.Tests
         public void ShouldNOTAddSpaceAfterLastFullStopInParagraph()
         {
             string input = "ایک۔دو۔\r\nتین۔";
-            string output = "ایک۔ دو۔\rnتین۔";
+            string output = "ایک۔ دو۔\r\nتین۔";
 
             Test(input, output);
         }
@@ -206,7 +215,7 @@ namespace Inshapardaz.Language.Tools.Tests
         [Fact]
         public void ShouldNotAddSpaceOnStartOfLine()
         {
-            string input = "کہا\n\r\"کیا بات ہے\"";
+            string input = "کہا\r\n\"کیا بات ہے\"";
             string output = "کہا\r\n\"کیا بات ہے\"";
 
             Test(input, output);
