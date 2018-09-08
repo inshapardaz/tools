@@ -123,7 +123,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\join.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inshapardaz.Language.Tools\Inshapardaz.Language.Tools.csproj">
       <Project>{F089AD01-2F83-480F-BB02-0CADE7C7E48C}</Project>

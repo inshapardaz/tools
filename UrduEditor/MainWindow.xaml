@@ -32,10 +32,22 @@
                         </StackPanel>
                     </Button>
                     <Separator/>
+                    <Button Click="OnJoinLines">
+                        <StackPanel>
+                            <Image Source="images/join.png" />
+                            <TextBlock>Join Lines</TextBlock>
+                        </StackPanel>
+                    </Button>
                     <Button Click="OnCleanup">
                         <StackPanel>
                             <Image Source="images/clean.png" />
                             <TextBlock>Clean up</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Click="OnCheckUp">
+                        <StackPanel>
+                            <Image Source="images/clean.png" />
+                            <TextBlock>Check Document</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Click="OnSpellCheck">

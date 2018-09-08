@@ -77,7 +77,7 @@ namespace Inshapardaz.Language.Tools
             return mistakes;
         }
 
-        private IEnumerable<string> FindCorrectOptions(string word)
+        public IEnumerable<string> FindCorrectOptions(string word)
         {
             var replacements = new List<string>();
 

@@ -19,7 +19,7 @@ namespace UrduEditor
         
         private void OnCleanup(object sender, RoutedEventArgs e)
         {
-            document.Cleanup();            
+            document.Cleanup(true);            
         }
 
         private void OnSpellCheck(object sender, RoutedEventArgs e)
@@ -63,6 +63,16 @@ namespace UrduEditor
                     rtText.Select(selectedMistake.StartPosition, selectedMistake.EndPosition - selectedMistake.StartPosition);
                 }
             }
+        }
+
+        private void OnCheckUp(object sender, RoutedEventArgs e)
+        {
+            document.Cleanup();
+        }
+
+        private void OnJoinLines(object sender, RoutedEventArgs e)
+        {
+            document.JoinLines();
         }
     }
 }

@@ -38,13 +38,20 @@ namespace UrduEditor
             }
         }
 
-        internal void Cleanup()
+        internal void Cleanup(bool autoCorrect = false)
         {
             var result = new Cleanup().Clean(Content);
-            CleanupSuggesstions.Clear();
-            foreach (var s in result.Suggesstions)
+            if (autoCorrect)
             {
-                CleanupSuggesstions.Add(s);
+                Content = result.CorrectedString;
+            }
+            else
+            {
+                CleanupSuggesstions.Clear();
+                foreach (var s in result.Suggesstions)
+                {
+                    CleanupSuggesstions.Add(s);
+                }
             }
         }
 
@@ -64,6 +71,11 @@ namespace UrduEditor
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        internal void JoinLines()
+        {
+            Content = new Cleanup().JoinAllLines(Content);
         }
     }
 }

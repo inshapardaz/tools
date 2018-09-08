@@ -110,7 +110,7 @@ namespace Inshapardaz.Language.Tools
                     continue;
                 }
 
-                //if (c == '\"' && secondLastChar == '؟')
+                //if (c == '\"' && lastChar == ' ' && secondLastChar == '؟' )
                 //{
                 //    sb.ReplaceLastCharacter(c);
                 //    sb.Append(' ');
@@ -181,6 +181,11 @@ namespace Inshapardaz.Language.Tools
             line = line.Replace("\'", " \'");
 
             return line.Trim();*/
+        }
+
+        public string JoinAllLines(string text)
+        {
+            return text.Replace("\r\n", " ");
         }
     }
 
