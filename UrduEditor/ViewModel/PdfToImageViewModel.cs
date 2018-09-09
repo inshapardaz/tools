@@ -4,10 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using System.Windows.Input;
-using org.pdfclown.bytes;
-using org.pdfclown.documents;
-using org.pdfclown.objects;
-using org.pdfclown.tools;
+using IronPdf;
 
 namespace UrduEditor.ViewModel
 {
@@ -123,19 +120,15 @@ namespace UrduEditor.ViewModel
             }
 
             Busy = true;
-            using (var file = new org.pdfclown.files.File(PdfFilePath))
+            var pdf = PdfDocument.FromFile(PdfFilePath);
+            //Extract all pages to a folder as image files
+            try
             {
-                Document document = file.Document;
-                Pages pages = document.Pages;
-                foreach (var page in pages)
-                {
-                    SizeF imageSize = page.Size;
-                    Renderer renderer = new Renderer();
-                    Image image = renderer.Render(page, imageSize);
-
-                    var outputPath = Path.Combine(OutputPath, $"{page.Index}.jpg");
-                    image.Save(outputPath, ImageFormat.Jpeg);
-                }                
+                pdf.RasterizeToImageFiles($"{OutputPath}\\*.jpg", ImageType.Jpeg);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unable to extract images. Make sure the PDF is not protected {Environment.NewLine}{ex.Message}");
             }
 
             Busy = false;

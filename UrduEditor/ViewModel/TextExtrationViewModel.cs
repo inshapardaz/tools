@@ -112,8 +112,8 @@ namespace UrduEditor.ViewModel
                 }
                 else
                 {
-                    OutputPath = Path.Combine(InputPath, "output");
-                    Output.Add($"INFO : No output path specified. Using folder {OutputPath}");
+                    OutputPath = InputPath;
+                    Output.Add($"INFO : No output path specified. Using same folder");
                 }
             }
             
@@ -186,12 +186,13 @@ namespace UrduEditor.ViewModel
             else
             {
                 var newfileName = Path.GetFileNameWithoutExtension(filePath);
-                File.WriteAllText(Path.Combine(_outputPath, $"{newfileName}.txt"), text);
+                File.WriteAllText(Path.Combine(OutputPath, $"{newfileName}.txt"), text);
             }
         }
 
         private void EnsureOutputDestination()
         {
+            if (InputPath == OutputPath) return;
             if (MergeIntoOneFile)
             {
                 if (File.Exists(OutputPath))

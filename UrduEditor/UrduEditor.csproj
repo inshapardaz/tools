@@ -76,6 +76,9 @@
     <Reference Include="Grpc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
       <HintPath>..\packages\Grpc.Core.1.13.1\lib\net45\Grpc.Core.dll</HintPath>
     </Reference>
+    <Reference Include="IronPdf, Version=4.4.9.15720, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.4.4.9\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
     <Reference Include="Lucene.Net, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.4.8.0-beta00005\lib\net45\Lucene.Net.dll</HintPath>
     </Reference>
@@ -89,9 +92,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="PDFClown, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFClown.NET.2.0.0\lib\PDFClown.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -138,6 +138,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -177,17 +178,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Cleanup.xaml.cs">
+      <DependentUpon>Cleanup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ImageSplitter.xaml.cs">
       <DependentUpon>ImageSplitter.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TextExtraction.xaml.cs">
       <DependentUpon>TextExtraction.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CleanupViewModel.cs" />
     <Compile Include="ViewModel\CommandHandler.cs" />
     <Compile Include="ViewModel\TextExtrationViewModel.cs" />
     <Compile Include="ViewModel\ImageSplitterViewModel.cs" />
     <Compile Include="ViewModel\PdfToImageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Page Include="Controls\Cleanup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ImageSplitter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -211,7 +220,7 @@
     <Compile Include="Controls\PdfToImage.xaml.cs">
       <DependentUpon>PdfToImage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DocumentViewModel.cs" />
+    <Compile Include="ViewModel\DocumentViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

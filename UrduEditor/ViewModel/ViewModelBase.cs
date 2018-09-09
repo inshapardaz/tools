@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace UrduEditor.ViewModel
 {
@@ -10,6 +12,11 @@ namespace UrduEditor.ViewModel
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected void RunInBackground(Action action)
+        {
+            Task.Run(action);
         }
     }
 }

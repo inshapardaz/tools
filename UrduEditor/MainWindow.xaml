@@ -9,16 +9,15 @@
     <TabControl>
         <TabControl.Items>
             <TabItem Header="PDF to Images">
-                <controls:PdfToImage />
+                <controls:PdfToImage x:Name="pdfToImage" />
             </TabItem>
-            <TabItem Header="Image Splitter">
+            <TabItem Header="Image Splitter" x:Name="imageSplitter">
                 <controls:ImageSplitter/>
             </TabItem>
-            <TabItem Header="Text Conversion">
+            <TabItem Header="Text Conversion" x:Name="textConversion">
                 <controls:TextExtraction/>
             </TabItem>
-            <TabItem Header="Post processing">
-
+            <TabItem Header="Post processing" x:Name="postProcessing">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
