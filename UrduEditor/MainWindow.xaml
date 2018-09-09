@@ -3,93 +3,110 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UrduEditor"
-        xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:controls="clr-namespace:UrduEditor.Controls"
         mc:Ignorable="d"
         Title="Urdu Editor" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="300px" />
-        </Grid.ColumnDefinitions>
-        <ToolBarPanel Grid.Row="0" Grid.ColumnSpan="2">
-            <ToolBar>
-                <ToolBar.Items>
-                    <Button Click="OnOpen">
-                        <StackPanel>
-                            <Image Source="images/open.png" />
-                            <TextBlock>Open</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button Click="OnSave">
-                        <StackPanel>
-                            <Image Source="images/save.png" />
-                            <TextBlock>Save</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Separator/>
-                    <Button Click="OnJoinLines">
-                        <StackPanel>
-                            <Image Source="images/join.png" />
-                            <TextBlock>Join Lines</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button Click="OnCleanup">
-                        <StackPanel>
-                            <Image Source="images/clean.png" />
-                            <TextBlock>Clean up</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button Click="OnCheckUp">
-                        <StackPanel>
-                            <Image Source="images/clean.png" />
-                            <TextBlock>Check Document</TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button Click="OnSpellCheck">
-                        <StackPanel>
-                            <Image Source="images/spellcheck.png" />
-                            <TextBlock>Spell check</TextBlock>
-                        </StackPanel></Button>
-                </ToolBar.Items>
-            </ToolBar>
-        </ToolBarPanel>
-        <TextBox x:Name="rtText" Grid.Row="1" FontFamily="Jameel Noori Nastaleeq" FontSize="16" Text="{Binding Content}" AutoWordSelection="True" TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
-        <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+    <TabControl>
+        <TabControl.Items>
+            <TabItem Header="PDF to Images">
+                <controls:PdfToImage />
+            </TabItem>
+            <TabItem Header="Image Splitter">
+                <controls:ImageSplitter/>
+            </TabItem>
+            <TabItem Header="Text Conversion">
+                <controls:TextExtraction/>
+            </TabItem>
+            <TabItem Header="Post processing">
 
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0">Cleanup Issues</Label>
-            <ListBox Grid.Row="1" ItemsSource="{Binding CleanupSuggesstions}" SelectionMode="Single" SelectionChanged="OnSelectedSuggession">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{Binding SuggesstionType}"></Label>
-                            <Label Content="{Binding Position}" HorizontalAlignment="Right"></Label>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="29*" />
+                        <ColumnDefinition Width="215*"/>
+                        <ColumnDefinition Width="300px" />
+                    </Grid.ColumnDefinitions>
+                    <ToolBarPanel Grid.Row="0" Grid.ColumnSpan="3" Margin="0,0,0,0.2">
+                        <ToolBar>
+                            <ToolBar.Items>
+                                <Button Click="OnOpen">
+                                    <StackPanel>
+                                        <Image Source="images/open.png" />
+                                        <TextBlock>Open</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="OnSave">
+                                    <StackPanel>
+                                        <Image Source="images/save.png" />
+                                        <TextBlock>Save</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Separator/>
+                                <Button Click="OnJoinLines">
+                                    <StackPanel>
+                                        <Image Source="images/join.png" />
+                                        <TextBlock>Join Lines</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="OnCleanup">
+                                    <StackPanel>
+                                        <Image Source="images/clean.png" />
+                                        <TextBlock>Clean up</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="OnCheckUp">
+                                    <StackPanel>
+                                        <Image Source="images/clean.png" />
+                                        <TextBlock>Check Document</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Button Click="OnSpellCheck">
+                                    <StackPanel>
+                                        <Image Source="images/spellcheck.png" />
+                                        <TextBlock>Spell check</TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </ToolBar.Items>
+                        </ToolBar>
+                    </ToolBarPanel>
+                    <TextBox x:Name="rtText" FontFamily="Jameel Noori Nastaleeq" FontSize="16" Text="{Binding Content}" AutoWordSelection="True" TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Margin="0,43,0,0.2" Grid.RowSpan="2"/>
+                    <Grid Grid.Column="2" Margin="0,43,0,0.2" Grid.RowSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
 
-            <Label Grid.Row="2">Spelling Issues</Label>
-            <ListBox Grid.Row="3" ItemsSource="{Binding SpellingMistakes}" SelectionMode="Single" SelectionChanged="OnSelectedSuggession">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{Binding OriginalText}"></Label>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Grid>
-        
-    </Grid>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0">Cleanup Issues</Label>
+                        <ListBox Grid.Row="1" ItemsSource="{Binding CleanupSuggesstions}" SelectionMode="Single" SelectionChanged="OnSelectedSuggession">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="{Binding SuggesstionType}"></Label>
+                                        <Label Content="{Binding Position}" HorizontalAlignment="Right"></Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <Label Grid.Row="2">Spelling Issues</Label>
+                        <ListBox Grid.Row="3" ItemsSource="{Binding SpellingMistakes}" SelectionMode="Single" SelectionChanged="OnSelectedSuggession">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="{Binding OriginalText}"></Label>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl.Items>
+    </TabControl>
+
 </Window>

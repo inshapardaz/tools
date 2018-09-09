@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="UrduEditor.Controls.TextExtraction"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UrduEditor.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Padding="12px">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5px"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5px"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0">Input Folder</Label>
+        <TextBox Grid.Column="1" Text="{Binding InputPath}"></TextBox>
+        <Button Grid.Column="2" Command="{Binding BrowseInputPathCommand}">
+            <StackPanel Orientation="Horizontal" Margin="5px">
+                <Image Source="/UrduEditor;component/images/folderopen.png" Margin="2px"/>
+                <TextBlock>Browse</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="3" Grid.RowSpan="3" Margin="6px 0 0 0" Command="{Binding ProcessCommand}">
+            <StackPanel Margin="5px">
+                <Image Source="/UrduEditor;component/images/process.png"/>
+                <TextBlock>Convert</TextBlock>
+            </StackPanel>
+        </Button>
+        <!--2nd Row-->
+        <Label Grid.Column="0" Grid.Row="2">Output Folder</Label>
+        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding OutputPath}"></TextBox>
+        <Button Grid.Column="2" Grid.Row="2" Command="{Binding BrowseOutputPathCommand}">
+            <StackPanel Orientation="Horizontal" Margin="5px">
+                <Image Source="/UrduEditor;component/images/folderopen.png" Margin="2px"/>
+                <TextBlock>Browse</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <CheckBox Grid.Column="1" Grid.Row="4" IsChecked="{Binding MergeIntoOneFile}">Merge all pages into one file?</CheckBox>
+        <ListBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="5" ItemsSource="{Binding Output}">
+            
+        </ListBox>
+    </Grid>
+</UserControl>

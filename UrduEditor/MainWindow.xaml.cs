@@ -1,7 +1,13 @@
-﻿using System.IO;
+﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 using Inshapardaz.Language.Tools;
-using Microsoft.Win32;
+using UrduEditor.Models;
+using MessageBox = System.Windows.MessageBox;
 
 namespace UrduEditor
 {
@@ -16,7 +22,7 @@ namespace UrduEditor
             InitializeComponent();
             DataContext = this.document;
         }
-        
+
         private void OnCleanup(object sender, RoutedEventArgs e)
         {
             document.Cleanup(true);            
@@ -31,7 +37,7 @@ namespace UrduEditor
         {
             var openFile = new OpenFileDialog();
             openFile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-            if (openFile.ShowDialog() == true)
+            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 document.LoadDocument(openFile.FileName);
             }
