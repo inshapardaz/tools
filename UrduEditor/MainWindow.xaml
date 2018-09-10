@@ -105,6 +105,9 @@
                     </Grid>
                 </Grid>
             </TabItem>
+            <TabItem Header="Save Book Pages">
+                <controls:InsertBook />
+            </TabItem>
         </TabControl.Items>
     </TabControl>
 

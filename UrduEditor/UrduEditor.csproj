@@ -184,11 +184,15 @@
     <Compile Include="Controls\ImageSplitter.xaml.cs">
       <DependentUpon>ImageSplitter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\InsertBook.xaml.cs">
+      <DependentUpon>InsertBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TextExtraction.xaml.cs">
       <DependentUpon>TextExtraction.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CleanupViewModel.cs" />
     <Compile Include="ViewModel\CommandHandler.cs" />
+    <Compile Include="ViewModel\InsertBookViewModel.cs" />
     <Compile Include="ViewModel\TextExtrationViewModel.cs" />
     <Compile Include="ViewModel\ImageSplitterViewModel.cs" />
     <Compile Include="ViewModel\PdfToImageViewModel.cs" />
@@ -198,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ImageSplitter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InsertBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

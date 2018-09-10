@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\code\inshapardaz\UrduEditor\UrduEditor\App.xaml
-5-50152823
+6576961158
 6587782940
-211528831251
+231407718452
 151-808477678
-Controls\Cleanup.xaml;Controls\ImageSplitter.xaml;Controls\PdfToImage.xaml;Controls\TextExtraction.xaml;MainWindow.xaml;
+Controls\Cleanup.xaml;Controls\ImageSplitter.xaml;Controls\InsertBook.xaml;Controls\PdfToImage.xaml;Controls\TextExtraction.xaml;MainWindow.xaml;
 
-True
+False
 
