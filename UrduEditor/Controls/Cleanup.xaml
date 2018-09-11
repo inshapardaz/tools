@@ -9,6 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -59,8 +60,32 @@
                 </ToolBar.Items>
             </ToolBar>
         </ToolBarPanel>
-        <TextBox x:Name="rtText" FontFamily="Jameel Noori Nastaleeq" FontSize="16" Text="{Binding Document.Content}" AutoWordSelection="True" TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Margin="0,43,0,0.2" Grid.RowSpan="2"/>
-        <Grid Grid.Column="2" Margin="0,43,0,0.2" Grid.RowSpan="2">
+        <ToolBarPanel Grid.Row="1" Grid.ColumnSpan="3" Margin="0,0,0,0.2">
+            <ToolBar>
+                <ToolBar.Items>
+                    <Label VerticalAlignment="Center">Cleanup Folder</Label>
+                    <TextBox Text="{Binding InputFolder}" Margin="0" Width="394"/>
+                    <Button Command="{Binding OpenFolderCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/UrduEditor;component/images/folderopen.png" />
+                            <TextBlock>Open</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding CleanupFolderCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/UrduEditor;component/images/clean.png" />
+                            <TextBlock>Clean up</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </ToolBar.Items>
+            </ToolBar>
+        </ToolBarPanel>
+        <TextBox x:Name="rtText" FontFamily="Jameel Noori Nastaleeq" FontSize="16" 
+                 Text="{Binding Document.Content}" AutoWordSelection="True" 
+                 TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft" 
+                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" 
+                 Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"/>
+        <Grid Grid.Column="2" Grid.RowSpan="3" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>

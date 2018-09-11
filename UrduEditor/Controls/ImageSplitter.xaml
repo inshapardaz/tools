@@ -64,8 +64,7 @@
             </Button>
 
             <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4">
-                <CheckBox IsChecked="True" Padding="4,-1,6,0" Content="Is Right-to-left"/>
-                
+                <CheckBox IsChecked="{Binding RightToRLeft}" Padding="4,-1,6,0" Content="Is Right-to-left"/>                
             </StackPanel>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="2">

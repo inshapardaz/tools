@@ -165,7 +165,7 @@ namespace UrduEditor.ViewModel
             var response = client.DetectDocumentText(image);
             if (response == null || response.Text == null)
             {
-                Output.Add($"WARNING : Unable to process file {filePath}");
+                //Output.Add($"WARNING : Unable to process file {filePath}");
                 return;
             }
 

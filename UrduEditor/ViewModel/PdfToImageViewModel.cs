@@ -86,7 +86,7 @@ namespace UrduEditor.ViewModel
         {
             var openFile = new OpenFileDialog();
             openFile.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
-            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFile.ShowDialog() == DialogResult.OK)
             {
                 PdfFilePath = openFile.FileName;
             }
