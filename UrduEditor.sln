@@ -5,9 +5,13 @@ VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrduEditor", "UrduEditor\UrduEditor.csproj", "{FC5CC8AC-12A2-4CBF-AA79-EA62E4658456}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inshapardaz.Language.Tools", "Inshapardaz.Language.Tools\Inshapardaz.Language.Tools.csproj", "{F089AD01-2F83-480F-BB02-0CADE7C7E48C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inshapardaz.Language.Tools", "Inshapardaz.Language.Tools\Inshapardaz.Language.Tools.csproj", "{F089AD01-2F83-480F-BB02-0CADE7C7E48C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inshapardaz.Language.Tools.Tests", "Inshapardaz.Language.Tools.Tests\Inshapardaz.Language.Tools.Tests.csproj", "{187D804F-2C68-4663-B937-3D93DA71F397}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inshapardaz.Language.Tools.Tests", "Inshapardaz.Language.Tools.Tests\Inshapardaz.Language.Tools.Tests.csproj", "{187D804F-2C68-4663-B937-3D93DA71F397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inshapardaz.Word", "Inshapardaz.Word\Inshapardaz.Word.csproj", "{09709528-047D-41AE-8FB9-30097EB93D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inshapardaz.WordWeb", "Inshapardaz.WordWeb\Inshapardaz.WordWeb.csproj", "{DB284A7D-5D22-4640-BBA5-D489BA28FEF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,16 @@ Global
 		{187D804F-2C68-4663-B937-3D93DA71F397}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{187D804F-2C68-4663-B937-3D93DA71F397}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{187D804F-2C68-4663-B937-3D93DA71F397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09709528-047D-41AE-8FB9-30097EB93D98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09709528-047D-41AE-8FB9-30097EB93D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09709528-047D-41AE-8FB9-30097EB93D98}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{09709528-047D-41AE-8FB9-30097EB93D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09709528-047D-41AE-8FB9-30097EB93D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09709528-047D-41AE-8FB9-30097EB93D98}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DB284A7D-5D22-4640-BBA5-D489BA28FEF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB284A7D-5D22-4640-BBA5-D489BA28FEF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB284A7D-5D22-4640-BBA5-D489BA28FEF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB284A7D-5D22-4640-BBA5-D489BA28FEF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

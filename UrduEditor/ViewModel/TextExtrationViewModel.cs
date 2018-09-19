@@ -19,6 +19,7 @@ namespace UrduEditor.ViewModel
 
         private string _inputPath;
         private string _outputPath;
+        private int _fileType;
         private bool _mergeIntoOneFile;
         private ObservableCollection<string> _output = new ObservableCollection<string>();
 
@@ -32,6 +33,12 @@ namespace UrduEditor.ViewModel
         {
             get { return _outputPath; }
             set { _outputPath = value; NotifyPropertyChanged(); }
+        }
+
+        public int FileType
+        {
+            get { return _fileType; }
+            set { _fileType = value; NotifyPropertyChanged(); }
         }
 
         public bool MergeIntoOneFile
@@ -120,7 +127,8 @@ namespace UrduEditor.ViewModel
             try
             {
                 EnsureOutputDestination();
-                var files = Directory.GetFiles(InputPath, "*.jp*g");
+                var filter = (FileType == 0) ? "*.jp*g" : "*.gif";
+                var files = Directory.GetFiles(InputPath, filter);
 
                 BlockingCollection<string> filesToProcess = new BlockingCollection<string>();
 

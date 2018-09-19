@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp 
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+          xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+          xsi:type="TaskPaneApp">
+  <Id>b59eeffd-957f-49f6-aa12-57c56fc1a025</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>[Provider name]</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Urdu Tools" />
+  <Description DefaultValue="Tools to help you create word documents in urdu"/>
+  <IconUrl DefaultValue="~remoteAppUrl/Images/Button32x32.png" />
+
+  <SupportUrl DefaultValue="https://inshapardaz.azurewebsites.net" />
+  <AppDomains>
+    <AppDomain>AppDomain1</AppDomain>
+    <AppDomain>AppDomain2</AppDomain>
+    <AppDomain>AppDomain3</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Document" />
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="~remoteAppUrl/Home.html" />
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Document">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="Contoso.GetStarted.Title"/>
+            <Description resid="Contoso.GetStarted.Description"/>
+            <LearnMoreUrl resid="Contoso.GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+
+          <FunctionFile resid="GlobalFunctionFile.Url" />
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="Contoso.Group1">
+                <Label resid="Contoso.Group1Label" />
+                <Icon>
+                  <bt:Image size="16" resid="Contoso.tpicon_16x16" />
+                  <bt:Image size="32" resid="Contoso.tpicon_32x32" />
+                  <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                </Icon>
+                <Control xsi:type="Button" id="Contoso.TaskpaneButton">
+                  <Label resid="Contoso.TaskpaneButton.Label" />
+                  <Supertip>                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="Contoso.TaskpaneButton.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="Contoso.TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Contoso.tpicon_16x16" />
+                    <bt:Image size="32" resid="Contoso.tpicon_32x32" />
+                    <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <!-- Provide a URL resource id for the location that will be displayed on the task pane. -->
+                    <SourceLocation resid="Contoso.Taskpane.Url" />
+                  </Action>
+                </Control>
+                <Control xsi:type="Menu" id="Contoso.Menu">
+                  <Label resid="SymbolMenu.Label" />
+                  <Supertip>
+                    <Title resid="SymbolMenu.Dropdown.Label" />
+                    <Description resid="SymbolMenu.Dropdown.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="symbolicon_16x16" />
+                    <bt:Image size="32" resid="symbolicon_16x16" />
+                    <bt:Image size="80" resid="symbolicon_16x16" />
+                  </Icon>
+                  <Items>
+                    <Item id="SymbolMenu.Zabar">
+                      <Label resid="Zabar.Label"/>
+                      <Supertip>
+                        <Title resid="Zabar.Label" />
+                        <Description resid="Zabar.Tooltip" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="symbolicon.zabar_16x16" />
+                        <bt:Image size="32" resid="symbolicon.zabar_16x16" />
+                        <bt:Image size="80" resid="symbolicon.zabar_16x16" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ButtonId1</TaskpaneId>
+                        <SourceLocation resid="Contoso.Taskpane.Url" />
+                      </Action>
+                    </Item>
+                    <Item id="SymbolMenu.Zair">
+                      <Label resid="Zair.Label"/>
+                      <Supertip>
+                        <Title resid="Zair.Label" />
+                        <Description resid="Zair.Tooltip" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="symbolicon.zair_16x16" />
+                        <bt:Image size="32" resid="symbolicon.zair_16x16" />
+                        <bt:Image size="80" resid="symbolicon.zair_16x16" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ButtonId1</TaskpaneId>
+                        <SourceLocation resid="Contoso.Taskpane.Url" />
+                      </Action>
+                    </Item>
+                    <Item id="SymbolMenu.Pesh">
+                      <Label resid="Pesh.Label"/>
+                      <Supertip>
+                        <Title resid="Pesh.Label" />
+                        <Description resid="Pesh.Tooltip" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="symbolicon.pesh_16x16" />
+                        <bt:Image size="32" resid="symbolicon.pesh_16x16" />
+                        <bt:Image size="80" resid="symbolicon.pesh_16x16" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ButtonId1</TaskpaneId>
+                        <SourceLocation resid="Contoso.Taskpane.Url" />
+                      </Action>
+                    </Item>
+
+                    <Item id="SymbolMenu.DoZabar">
+                      <Label resid="DoZabar.Label"/>
+                      <Supertip>
+                        <Title resid="DoZabar.Label" />
+                        <Description resid="DoZabar.Tooltip" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="symbolicon.dozabar_16x16" />
+                        <bt:Image size="32" resid="symbolicon.dozabar_16x16" />
+                        <bt:Image size="80" resid="symbolicon.dozabar_16x16" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ButtonId1</TaskpaneId>
+                        <SourceLocation resid="Contoso.Taskpane.Url" />
+                      </Action>
+                    </Item>
+                    <Item id="SymbolMenu.DoZair">
+                      <Label resid="DoZair.Label"/>
+                      <Supertip>
+                        <Title resid="DoZair.Label" />
+                        <Description resid="DoZair.Tooltip" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="symbolicon.dozair_16x16" />
+                        <bt:Image size="32" resid="symbolicon.dozair_16x16" />
+                        <bt:Image size="80" resid="symbolicon.dozair_16x16" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ButtonId1</TaskpaneId>
+                        <SourceLocation resid="Contoso.Taskpane.Url" />
+                      </Action>
+                    </Item>
+                    <Item id="SymbolMenu.DoPesh">
+                      <Label resid="DoPesh.Label"/>
+                      <Supertip>
+                        <Title resid="DoPesh.Label" />
+                        <Description resid="DoPesh.Tooltip" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="symbolicon.dopesh_16x16" />
+                        <bt:Image size="32" resid="symbolicon.dopesh_16x16" />
+                        <bt:Image size="80" resid="symbolicon.dopesh_16x16" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ButtonId1</TaskpaneId>
+                        <SourceLocation resid="Contoso.Taskpane.Url" />
+                      </Action>
+                    </Item>
+
+                    <Item id="SymbolMenu.Shadda">
+                      <Label resid="Shadda.Label"/>
+                      <Supertip>
+                        <Title resid="Shadda.Label" />
+                        <Description resid="Shadda.Tooltip" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="symbolicon.shadda_16x16" />
+                        <bt:Image size="32" resid="symbolicon.shadda_16x16" />
+                        <bt:Image size="80" resid="symbolicon.shadda_16x16" />
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>writeShadda</FunctionName>
+                      </Action>
+                    </Item>
+                    <Item id="SymbolMenu.Alif">
+                      <Label resid="Alif.Label"/>
+                      <Supertip>
+                        <Title resid="Alif.Label" />
+                        <Description resid="Alif.Tooltip" />
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="symbolicon.alif_16x16" />
+                        <bt:Image size="32" resid="symbolicon.alif_16x16" />
+                        <bt:Image size="80" resid="symbolicon.alif_16x16" />
+                      </Icon>
+                      <Action xsi:type="ShowTaskpane">
+                        <TaskpaneId>ButtonId1</TaskpaneId>
+                        <SourceLocation resid="Contoso.Taskpane.Url" />
+                      </Action>
+                    </Item>
+
+                  </Items>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Contoso.tpicon_16x16" DefaultValue="~remoteAppUrl/Images/Button16x16.png" />
+        <bt:Image id="Contoso.tpicon_32x32" DefaultValue="~remoteAppUrl/Images/Button32x32.png" />
+        <bt:Image id="Contoso.tpicon_80x80" DefaultValue="~remoteAppUrl/Images/Button80x80.png" />
+
+        <bt:Image id="Contoso.TaskpaneButton.Icon" DefaultValue="https://i.imgur.com/FkSShX9.png" />
+        <bt:Image id="Contoso.FunctionButton.Icon" DefaultValue="https://i.imgur.com/qDujiX0.png" />
+
+        <bt:Image id="symbolicon_16x16" DefaultValue="~remoteAppUrl/Images/symbols/symbols.png" />
+        <bt:Image id="symbolicon.alif_16x16" DefaultValue="~remoteAppUrl/Images/symbols/alif.png" />
+        <bt:Image id="symbolicon.zabar_16x16" DefaultValue="~remoteAppUrl/Images/symbols/zabar.png" />
+        <bt:Image id="symbolicon.zair_16x16" DefaultValue="~remoteAppUrl/Images/symbols/zair.png" />
+        <bt:Image id="symbolicon.pesh_16x16" DefaultValue="~remoteAppUrl/Images/symbols/pesh.png" />
+        <bt:Image id="symbolicon.dozabar_16x16" DefaultValue="~remoteAppUrl/Images/symbols/dozabar.png" />
+        <bt:Image id="symbolicon.dozair_16x16" DefaultValue="~remoteAppUrl/Images/symbols/dozair.png" />
+        <bt:Image id="symbolicon.dopesh_16x16" DefaultValue="~remoteAppUrl/Images/symbols/dopesh.png" />
+        <bt:Image id="symbolicon.shadda_16x16" DefaultValue="~remoteAppUrl/Images/symbols/shadda.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="GlobalFunctionFile.Url" DefaultValue="~remoteAppUrl/Functions/FunctionFile.html" />
+        <bt:Url id="Contoso.Taskpane.Url" DefaultValue="~remoteAppUrl/Home.html" />
+        <bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+      </bt:Urls>
+      <!-- ShortStrings max characters==125. -->
+      <bt:ShortStrings>
+        <bt:String id="Contoso.TaskpaneButton.Label" DefaultValue="Show Tools" />
+        <bt:String id="Contoso.Group1Label" DefaultValue="Urdu Commands" />
+        <bt:String id="Contoso.GetStarted.Title" DefaultValue="Urdu commands and tools!" />
+        <bt:String id="SymbolMenu.Label" DefaultValue="حرکات" />
+        <bt:String id="Zabar.Label" DefaultValue="زبر" />
+        <bt:String id="Zair.Label" DefaultValue="زیر" />
+        <bt:String id="Pesh.Label" DefaultValue="پیش" />      
+        <bt:String id="DoZabar.Label" DefaultValue="دو زبر" />
+        <bt:String id="DoZair.Label" DefaultValue="دو زیر" />
+        <bt:String id="DoPesh.Label" DefaultValue="دو پیش" />
+        <bt:String id="Alif.Label" DefaultValue="چھوٹی الف" />
+        <bt:String id="Shadda.Label" DefaultValue="شد" />
+
+        
+
+        <bt:String id="Contoso.FunctionButton.Label" DefaultValue="Execute Function" />
+        <bt:String id="Contoso.TaskpaneButton.Label" DefaultValue="Show Taskpane" />
+        <bt:String id="SymbolMenu.Dropdown.Label" DefaultValue="Dropdown" />
+        <bt:String id="Contoso.Item1.Label" DefaultValue="Show Taskpane 1" />
+        <bt:String id="Contoso.Item2.Label" DefaultValue="Show Taskpane 2" />
+        <bt:String id="Contoso.Tab1.GroupLabel" DefaultValue="Test Group" />
+        <bt:String id="Contoso.Tab1.TabLabel" DefaultValue="Test Tab" />
+      </bt:ShortStrings>
+      <!-- LongStrings max characters==250. -->
+      <bt:LongStrings>
+        <bt:String id="Contoso.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Tools" />
+        <bt:String id="Contoso.GetStarted.Description" DefaultValue="Click 'Show Tools' button to see editing tools." />
+        <bt:String id="Contoso.FunctionButton.Tooltip" DefaultValue="Click to Execute Function" />
+        <bt:String id="Contoso.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
+        <bt:String id="SymbolMenu.Dropdown.Tooltip" DefaultValue="Click to Show Options on this Menu" />
+        <bt:String id="Contoso.Item1.Tooltip" DefaultValue="Click to Show Taskpane1" />
+        <bt:String id="Contoso.Item2.Tooltip" DefaultValue="Click to Show Taskpane2" />
+
+        <bt:String id="Zabar.Tooltip" DefaultValue="Insert zabar symbol" />
+        <bt:String id="Zair.Tooltip" DefaultValue="Insert Zair symbol" />
+        <bt:String id="Pesh.Tooltip" DefaultValue="Insert Pesh symbol" />
+        <bt:String id="DoZabar.Tooltip" DefaultValue="Insert do zabar symbol" />
+        <bt:String id="DoZair.Tooltip" DefaultValue="Insert Do Zair symbol" />
+        <bt:String id="DoPesh.Tooltip" DefaultValue="Insert Do Pesh symbol" />
+        <bt:String id="Alif.Tooltip" DefaultValue="Insert Alif symbol" />
+        <bt:String id="Shadda.Tooltip" DefaultValue="Insert Shadda symbol" />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
