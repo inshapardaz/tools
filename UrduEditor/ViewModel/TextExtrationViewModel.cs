@@ -127,7 +127,19 @@ namespace UrduEditor.ViewModel
             try
             {
                 EnsureOutputDestination();
-                var filter = (FileType == 0) ? "*.jp*g" : "*.gif";
+                var filter = "";
+                switch (FileType)
+                {
+                    case 1:
+                        filter = "*.gif";
+                        break;
+                    case 2:
+                        filter = "*.png";
+                        break;
+                    default:
+                        filter = "*.jp*g";
+                        break;
+                }
                 var files = Directory.GetFiles(InputPath, filter);
 
                 BlockingCollection<string> filesToProcess = new BlockingCollection<string>();
