@@ -11,15 +11,6 @@ import os
 url = "https://www.rekhta.org/ebooks/bajang-aamad-col-mohammad-khan-ebooks-1"
 bookname = "BajangAmad"
 
-def makeOutputFolder():
-    filePath = f"{os.path.dirname(os.path.realpath(__file__))}\{bookname}"
-    if not os.path.exists(os.path.dirname(filePath)):
-        try:
-            os.makedirs(os.path.dirname(filePath))
-        except OSError as exc: # Guard against race condition
-            if exc.errno != errno.EEXIST:
-                raise
-
 def saveImage(i):
     elem = driver.find_elements_by_id("actualRenderingDiv")
     element = elem[0]
@@ -38,13 +29,19 @@ def saveImage(i):
 
     im = im.crop((left, top, right, bottom))
 
-    im.save(f"{bookname}\{i}.png") 
+    filename = '{0:04d}'.format(i)
+    im.save(f"{bookname}\{filename}.png") 
     elem.clear()
 
 def clickNext():
     nextButton = driver.find_element_by_css_selector(".left.pull-left.ebookprev")
-    nextButton.click()
-    time.sleep(1)
+        
+    if not nextButton:
+        return False
+    else:
+        nextButton.click()
+        time.sleep(1)
+        return True
 
 # makeOutputFolder()
 
@@ -56,7 +53,9 @@ driver.get(url)
 index = 1
 while True:
     saveImage(index)
-    clickNext()
+    movedNext = clickNext()
+    if not movedNext:
+        break 
     index = index + 1
 
 driver.close()
