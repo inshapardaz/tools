@@ -1,14 +1,27 @@
+#pip install selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+#pip install Pillow
 from PIL import Image
 from io import BytesIO
+import time
+import os
 
-url = "https://www.rekhta.org/ebooks/is-basti-ke-ek-kooche-mein-ibn-e-insha-ebooks-1"
-pageCount = 199
+url = "https://www.rekhta.org/ebooks/bajang-aamad-col-mohammad-khan-ebooks-1"
+bookname = "BajangAmad"
+
+def makeOutputFolder():
+    filePath = f"{os.path.dirname(os.path.realpath(__file__))}\{bookname}"
+    if not os.path.exists(os.path.dirname(filePath)):
+        try:
+            os.makedirs(os.path.dirname(filePath))
+        except OSError as exc: # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
 
 def saveImage(i):
-    elem = driver.find_elements_by_tag_name("canvas")
+    elem = driver.find_elements_by_id("actualRenderingDiv")
     element = elem[0]
     location = element.location
     size = element.size
@@ -18,27 +31,30 @@ def saveImage(i):
     im = Image.open(BytesIO(png))
 
     left = location['x']
-    top = location['y']
+    top = location['y'] + 30
     right = location['x'] + size['width']
     bottom = location['y'] + size['height']
 
 
     im = im.crop((left, top, right, bottom))
 
-    im.save(f"{i}.png") 
+    im.save(f"{bookname}\{i}.png") 
     elem.clear()
 
 def clickNext():
     nextButton = driver.find_element_by_css_selector(".left.pull-left.ebookprev")
     nextButton.click()
+    time.sleep(1)
+
+# makeOutputFolder()
 
 driver = webdriver.Firefox()
 driver.set_window_position(0,0)
-driver.set_window_size(970,824)
+driver.set_window_size(1000,824)
 driver.get(url)
 
 index = 1
-while index <= pageCount:
+while True:
     saveImage(index)
     clickNext()
     index = index + 1
