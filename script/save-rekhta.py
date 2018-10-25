@@ -2,16 +2,17 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+
+import argparse
+
 #pip install Pillow
 from PIL import Image
 from io import BytesIO
 import time
 import os
+import sys
 
-url = "https://www.rekhta.org/ebooks/bajang-aamad-col-mohammad-khan-ebooks-1"
-bookname = "BajangAmad"
-
-def saveImage(i):
+def saveImage(driver, bookname, i):
     elem = driver.find_elements_by_id("actualRenderingDiv")
     element = elem[0]
     location = element.location
@@ -33,7 +34,7 @@ def saveImage(i):
     im.save(f"{bookname}\{filename}.png") 
     elem.clear()
 
-def clickNext():
+def clickNext(driver):
     nextButton = driver.find_element_by_css_selector(".left.pull-left.ebookprev")
         
     if not nextButton:
@@ -43,19 +44,41 @@ def clickNext():
         time.sleep(1)
         return True
 
-# makeOutputFolder()
+def makeOutputFolder(bookname):
+    directory = f"{bookname}"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
-driver = webdriver.Firefox()
-driver.set_window_position(0,0)
-driver.set_window_size(1000,824)
-driver.get(url)
 
-index = 1
-while True:
-    saveImage(index)
-    movedNext = clickNext()
-    if not movedNext:
-        break 
-    index = index + 1
+def main(url, bookname):
+    makeOutputFolder(bookname)
 
-driver.close()
+    driver = webdriver.Firefox()
+    driver.set_window_position(0,0)
+    driver.set_window_size(1000,1000)
+    driver.get(url)
+
+    index = 1
+    while True:
+        saveImage(driver, bookname, index)
+        movedNext = clickNext(driver)
+        if not movedNext:
+            break 
+        index = index + 1
+
+    driver.close()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='Script to Download books from rekhta.',
+        usage='',
+        epilog=''
+    )
+
+    parser.add_argument('--title', help='Title of book to be imported', required=True)
+    parser.add_argument('--url', help='Url of book', required=True)
+
+    args = parser.parse_args()
+
+    main(args.url, args.title)
